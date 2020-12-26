@@ -7,26 +7,19 @@ import {
   Square,
   Text,
   IconButton,
-  ChakraProvider
 } from "@chakra-ui/react";
 
 import {
   ArrowBackIcon,
   ArrowForwardIcon,
   ArrowDownIcon,
-  ArrowUpIcon
+  ArrowUpIcon,
 } from "@chakra-ui/icons";
 
 import React, { useCallback, useState } from "react";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
-export const Holocron = ({
-  launch,
-  title,
-  fullscreen,
-  backgroundColor,
-  ...props
-}) => {
+export const Holocron = ({ launch, fullscreen, ...props }) => {
   function useStickyState(defaultValue, key) {
     const [value, setValue] = React.useState(() => {
       const stickyValue = window.localStorage.getItem(key);
@@ -45,9 +38,8 @@ export const Holocron = ({
   const [launched, setLaunched] = useState(false);
 
   return (
-    <ChakraProvider>
     <FullScreen handle={handle}>
-      <Box bg={`${backgroundColor}`}>
+      <Box bg="blue.500">
         <Flex h="100vh" overflow="hidden">
           <Box
             w={`${100}%`}
@@ -107,17 +99,8 @@ export const Holocron = ({
                       mt="10px"
                       h={`calc(100vh - 0.5rem  - 25px - ${up}vh - ${down}vh)`}
                     >
-                      <Box display="grid">
-                        {title}
-                        <Flex pt={2}>
-                          <Box onClick={() => setLaunched(true)} pr={2}>
-                            {launch}
-                          </Box>
-                          <Box onClick={handle.enter} pl={2}>
-                            {fullscreen}
-                          </Box>
-                        </Flex>
-                      </Box>
+                      <Box onClick={() => setLaunched(true)} pr={2}>{launch}</Box>
+                      <Box onClick={handle.enter} pl={2}>{fullscreen}</Box>
                     </Center>
                     <Box
                       flex="1"
@@ -192,7 +175,6 @@ export const Holocron = ({
         </Flex>
       </Box>
     </FullScreen>
-    </ChakraProvider>
   );
 };
 export default Holocron;
