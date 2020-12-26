@@ -15,6 +15,7 @@
     "framer-motion": "^3.1.1",
     "next": "10.0.4",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-full-screen": "^0.3.2-0"
   }
 }
