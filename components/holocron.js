@@ -31,10 +31,10 @@ export const Holocron = ({ launch, fullscreen, ...props }) => {
     return [value, setValue];
   }
   const handle = useFullScreenHandle();
-  const [up, setUp] = useStickyState(0, "holocronUpValue");
-  const [down, setDown] = useStickyState(0, "holocronDownValue");
+  const [up, setUp] = useStickyState(15, "holocronUpValue");
+  const [down, setDown] = useStickyState(15, "holocronDownValue");
   const [left, setLeft] = useStickyState(30, "holocronLeftValue");
-  const [right, setRight] = useStickyState(0, "holocronRightValue");
+  const [right, setRight] = useStickyState(15, "holocronRightValue");
   const [launched, setLaunched] = useState(false);
 
   return (
