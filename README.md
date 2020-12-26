@@ -19,13 +19,13 @@ import React, { Component } from 'react'
 import Holo from '@sampoder/holocron'
 
 <Holocron
-        title={<Title />}
-        backgroundColor='#00FF00'
-        launch={<Button />}
-        fullscreen={<Button />}
-      >
-        <p style={{ color: 'white' }}>Sam</p>
-      </Holocron>
+  title={<Title />}
+  backgroundColor='#00FF00'
+  launch={<Button />}
+  fullscreen={<Button />}
+>
+  <p style={{ color: 'white' }}>Sam</p>
+</Holocron>
 ```
 
 ## License
