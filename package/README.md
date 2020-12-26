@@ -1,28 +1,49 @@
-# @sampoder/holocron
+# 🥽 holocron
+Use your Jedi Challenges headset for anything!
 
-> A React component for displaying content on a Jedi Challenges headset
 
-[![NPM](https://img.shields.io/npm/v/@sampoder/holocron.svg)](https://www.npmjs.com/package/@sampoder/holocron) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/@sampoder/holocron.svg)](https://www.npmjs.com/package/@sampoder/holocron) 
 
 ## Install
 
 ```bash
-npm install --save @sampoder/holocron
+npm install --save @sampoder/holocron 
+yarn add @sampoder/holocron 
 ```
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import Holocron from '@sampoder/holocron'
 
-import MyComponent from '@sampoder/holocron'
-import '@sampoder/holocron/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+function Title(){
+  return <h1 style={{ color: 'white' }}>The Hello World!</h1>
 }
+
+function LaunchButton(){
+  return <button style={{ color: 'white' }}>Play</button>
+}
+
+function FullscreenButton(){
+  return <button style={{ color: 'white' }}>Fullscreen</button>
+}
+
+function App() {
+  return (
+    <div className='App'>
+      <Holocron
+        title={<Title />}
+        backgroundColor='#8492a6'
+        launch={<LaunchButton />}
+        fullscreen={<FullscreenButton />}
+      >
+        <p style={{ color: 'white', paddingTop: '30px' }}>Hello World</p>
+      </Holocron>
+    </div>
+  )
+}
+
+export default App
 ```
 
 ## License
