@@ -844,6 +844,18 @@
   dependencies:
     tslib "^2.0.0"
 
+"@sampoder/holocron@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@sampoder/holocron/-/holocron-1.0.0.tgz#f02d9c464888032017bcd16975135c579d1ee606"
+  integrity sha512-tPOVgchH3Cho6zbV4kppvq+c8qQnaK/xaOjjod5wW8dKdwq16YICYGGwKg90N217XC9XXy5esHROhppD64bfJA==
+  dependencies:
+    "@chakra-ui/icons" "^1.0.2"
+    "@chakra-ui/react" "^1.0.4"
+    "@emotion/react" "^11.1.4"
+    "@emotion/styled" "^11.0.0"
+    framer-motion "^3.1.1"
+    react-full-screen "^0.3.2-0"
+
 "@styled-system/core@5.1.2":
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/@styled-system/core/-/core-5.1.2.tgz#b8b7b86455d5a0514f071c4fa8e434b987f6a772"

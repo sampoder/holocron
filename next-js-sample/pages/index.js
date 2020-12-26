@@ -1,6 +1,6 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
-const Holocron = dynamic(() => import("../components/holocron"), {
+const Holocron = dynamic(() => import("@sampoder/holocron"), {
   ssr: false,
 });
 
