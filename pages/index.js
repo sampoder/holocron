@@ -25,11 +25,12 @@ import {
 export default function Home() {
   return (
     <Holocron
-      launch={<Button>►</Button>}
-      fullscreen={<Button>☒</Button>}
+      title={<h1 style={{color: "white"}}>The Hello World!</h1>}
+      backgroundColor="#00FF00"
+      launch={<button style={{color: "white"}}>►</button>}
+      fullscreen={<button style={{color: "white"}}>☒</button>}
     >
-      <Text color="white">Sam</Text>
-      <Button>Sammm</Button>
+      <p style={{color: "white"}}>Sam</p>
     </Holocron>
   );
 }
