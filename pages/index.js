@@ -15,11 +15,18 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 
+import {
+  ArrowBackIcon,
+  ArrowForwardIcon,
+  ArrowDownIcon,
+  ArrowUpIcon,
+} from "@chakra-ui/icons";
+
 export default function Home() {
   return (
     <Holocron
-      launch={<Button>Launch</Button>}
-      fullscreen={<Button>Fullscreen</Button>}
+      launch={<Button>►</Button>}
+      fullscreen={<Button>☒</Button>}
     >
       <Text color="white">Sam</Text>
       <Button>Sammm</Button>

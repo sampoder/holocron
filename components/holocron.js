@@ -7,6 +7,7 @@ import {
   Square,
   Text,
   IconButton,
+  ChakraProvider,
 } from "@chakra-ui/react";
 
 import {
@@ -38,143 +39,149 @@ export const Holocron = ({ launch, fullscreen, ...props }) => {
   const [launched, setLaunched] = useState(false);
 
   return (
-    <FullScreen handle={handle}>
-      <Box bg="blue.500">
-        <Flex h="100vh" overflow="hidden">
-          <Box
-            w={`${100}%`}
-            p={1}
-            pt={up + "vh"}
-            pb={down + "vh"}
-            pr={right + "vh"}
-            pl={left + "vh"}
-            h="100vh"
-          >
-            {!launched ? (
-              <Box w="100%" h="100%" bg="black" borderRadius={3}>
-                <Flex>
-                  <Center
-                    w="10px"
-                    maxHeight={`calc(100vh - 0.5rem - ${up}vh - ${down}vh)`}
-                  >
-                    <Box display="grid">
-                      <IconButton
-                        mb={3}
-                        onClick={() => setLeft(left - 1)}
-                        aria-label="Expand Left"
-                        icon={<ArrowBackIcon />}
-                      />
-                      <IconButton
-                        onClick={() => setLeft(left + 1)}
-                        aria-label="Expand Left"
-                        icon={<ArrowForwardIcon />}
-                      />
-                    </Box>
-                  </Center>
-                  <Box flex="1">
-                    <Box
-                      flex="1"
-                      h="10px"
-                      align="center"
-                      alignItems="center"
-                      justifyContent="center"
+    <ChakraProvider>
+      <FullScreen handle={handle}>
+        <Box bg="blue.500">
+          <Flex h="100vh" overflow="hidden">
+            <Box
+              w={`${100}%`}
+              p={1}
+              pt={up + "vh"}
+              pb={down + "vh"}
+              pr={right + "vh"}
+              pl={left + "vh"}
+              h="100vh"
+            >
+              {!launched ? (
+                <Box w="100%" h="100%" bg="black" borderRadius={3}>
+                  <Flex>
+                    <Center
+                      w="10px"
+                      maxHeight={`calc(100vh - 0.5rem - ${up}vh - ${down}vh)`}
                     >
-                      <Box mt="-15px">
+                      <Box display="grid">
                         <IconButton
-                          mr={3}
-                          aria-label="Expand Up"
-                          {...(up <= 0 && { disabled: true })}
-                          onClick={() => setUp(up - 1)}
-                          icon={<ArrowUpIcon />}
+                          mb={3}
+                          onClick={() => setLeft(left - 1)}
+                          aria-label="Expand Left"
+                          icon={<ArrowBackIcon />}
                         />
                         <IconButton
-                          aria-label="Expand Down"
-                          onClick={() => setUp(up + 1)}
-                          icon={<ArrowDownIcon />}
+                          onClick={() => setLeft(left + 1)}
+                          aria-label="Expand Left"
+                          icon={<ArrowForwardIcon />}
                         />
+                      </Box>
+                    </Center>
+                    <Box flex="1">
+                      <Box
+                        flex="1"
+                        h="10px"
+                        align="center"
+                        alignItems="center"
+                        justifyContent="center"
+                      >
+                        <Box mt="-15px">
+                          <IconButton
+                            mr={3}
+                            aria-label="Expand Up"
+                            {...(up <= 0 && { disabled: true })}
+                            onClick={() => setUp(up - 1)}
+                            icon={<ArrowUpIcon />}
+                          />
+                          <IconButton
+                            aria-label="Expand Down"
+                            onClick={() => setUp(up + 1)}
+                            icon={<ArrowDownIcon />}
+                          />
+                        </Box>
+                      </Box>
+                      <Center
+                        flex="1"
+                        mt="10px"
+                        h={`calc(100vh - 0.5rem  - 25px - ${up}vh - ${down}vh)`}
+                      >
+                        <Box onClick={() => setLaunched(true)} pr={2}>
+                          {launch}
+                        </Box>
+                        <Box onClick={handle.enter} pl={2}>
+                          {fullscreen}
+                        </Box>
+                      </Center>
+                      <Box
+                        flex="1"
+                        mb="20px"
+                        h="10px"
+                        align="center"
+                        alignItems="center"
+                        justifyContent="center"
+                      >
+                        <Box mb="30px">
+                          <IconButton
+                            mr={3}
+                            aria-label="Expand Up"
+                            onClick={() => setDown(down + 1)}
+                            icon={<ArrowUpIcon />}
+                          />
+                          <IconButton
+                            aria-label="Expand Down"
+                            {...(down <= 0 && { disabled: true })}
+                            onClick={() => setDown(down - 1)}
+                            icon={<ArrowDownIcon />}
+                          />
+                        </Box>
                       </Box>
                     </Box>
                     <Center
-                      flex="1"
-                      mt="10px"
-                      h={`calc(100vh - 0.5rem  - 25px - ${up}vh - ${down}vh)`}
+                      w="10px"
+                      maxHeight={`calc(100vh - 0.5rem - ${up}vh - ${down}vh)`}
                     >
-                      <Box onClick={() => setLaunched(true)} pr={2}>{launch}</Box>
-                      <Box onClick={handle.enter} pl={2}>{fullscreen}</Box>
-                    </Center>
-                    <Box
-                      flex="1"
-                      mb="20px"
-                      h="10px"
-                      align="center"
-                      alignItems="center"
-                      justifyContent="center"
-                    >
-                      <Box mb="30px">
+                      <Box display="grid">
                         <IconButton
-                          mr={3}
-                          aria-label="Expand Up"
-                          onClick={() => setDown(down + 1)}
-                          icon={<ArrowUpIcon />}
+                          mb={3}
+                          aria-label="Expand Right"
+                          onClick={() => setRight(right + 1)}
+                          icon={<ArrowBackIcon />}
                         />
                         <IconButton
-                          aria-label="Expand Down"
-                          {...(down <= 0 && { disabled: true })}
-                          onClick={() => setDown(down - 1)}
-                          icon={<ArrowDownIcon />}
+                          aria-label="Expand Right"
+                          onClick={() => setRight(right - 1)}
+                          {...(right <= 0 && { disabled: true })}
+                          icon={<ArrowForwardIcon />}
                         />
                       </Box>
-                    </Box>
-                  </Box>
-                  <Center
-                    w="10px"
-                    maxHeight={`calc(100vh - 0.5rem - ${up}vh - ${down}vh)`}
+                    </Center>
+                  </Flex>
+                </Box>
+              ) : (
+                <Flex>
+                  <Box
+                    w="50%"
+                    h="100%"
+                    minHeight={`calc(100vh - ${up}vh - ${down}vh)`}
+                    maxHeight={`calc(100vh - ${up}vh - ${down}vh)`}
+                    overflow="hidden"
+                    bg="black"
                   >
-                    <Box display="grid">
-                      <IconButton
-                        mb={3}
-                        aria-label="Expand Right"
-                        onClick={() => setRight(right + 1)}
-                        icon={<ArrowBackIcon />}
-                      />
-                      <IconButton
-                        aria-label="Expand Right"
-                        onClick={() => setRight(right - 1)}
-                        {...(right <= 0 && { disabled: true })}
-                        icon={<ArrowForwardIcon />}
-                      />
-                    </Box>
-                  </Center>
+                    {props.children}
+                  </Box>
+                  <Box
+                    w="50%"
+                    h="100%"
+                    minHeight={`calc(100vh - ${up}vh - ${down}vh)`}
+                    maxHeight={`calc(100vh - ${up}vh - ${down}vh)`}
+                    overflow="hidden"
+                    bg="black"
+                  >
+                    {props.children}
+                  </Box>
                 </Flex>
-              </Box>
-            ) : (
-              <Flex>
-                <Box
-                  w="50%"
-                  h="100%"
-                  minHeight={`calc(100vh - ${up}vh - ${down}vh)`}
-                  maxHeight={`calc(100vh - ${up}vh - ${down}vh)`}
-                  overflow="hidden"
-                  bg="black"
-                >
-                  {props.children}
-                </Box>
-                <Box
-                  w="50%"
-                  h="100%"
-                  minHeight={`calc(100vh - ${up}vh - ${down}vh)`}
-                  maxHeight={`calc(100vh - ${up}vh - ${down}vh)`}
-                  overflow="hidden"
-                  bg="black"
-                >
-                  {props.children}
-                </Box>
-              </Flex>
-            )}
-          </Box>
-        </Flex>
-      </Box>
-    </FullScreen>
+              )}
+            </Box>
+          </Flex>
+        </Box>
+      </FullScreen>
+    </ChakraProvider>
   );
 };
 export default Holocron;
