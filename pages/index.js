@@ -10,19 +10,29 @@ import {
   Button,
   Flex,
   Center,
+  Heading,
   Square,
   Text,
   IconButton,
 } from "@chakra-ui/react";
 
+import {
+  ArrowBackIcon,
+  ArrowForwardIcon,
+  ArrowDownIcon,
+  ViewIcon,
+  ArrowUpIcon,
+} from "@chakra-ui/icons";
+
 export default function Home() {
   return (
     <Holocron
-      launch={<Button>Launch</Button>}
+      launch={<Button>Fullscreen</Button>}
       fullscreen={<Button>Fullscreen</Button>}
+      title={<Heading color="white">The Hello World!</Heading>}
+      backgroundColor="#00FF00"
     >
-      <Text color="white">Sam</Text>
-      <Button>Sammm</Button>
+      <Text color="white">Hello World</Text>
     </Holocron>
   );
 }

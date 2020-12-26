@@ -7,19 +7,26 @@ import {
   Square,
   Text,
   IconButton,
+  ChakraProvider
 } from "@chakra-ui/react";
 
 import {
   ArrowBackIcon,
   ArrowForwardIcon,
   ArrowDownIcon,
-  ArrowUpIcon,
+  ArrowUpIcon
 } from "@chakra-ui/icons";
 
 import React, { useCallback, useState } from "react";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
-export const Holocron = ({ launch, fullscreen, ...props }) => {
+export const Holocron = ({
+  launch,
+  title,
+  fullscreen,
+  backgroundColor,
+  ...props
+}) => {
   function useStickyState(defaultValue, key) {
     const [value, setValue] = React.useState(() => {
       const stickyValue = window.localStorage.getItem(key);
@@ -38,8 +45,9 @@ export const Holocron = ({ launch, fullscreen, ...props }) => {
   const [launched, setLaunched] = useState(false);
 
   return (
+    <ChakraProvider>
     <FullScreen handle={handle}>
-      <Box bg="blue.500">
+      <Box bg={`${backgroundColor}`}>
         <Flex h="100vh" overflow="hidden">
           <Box
             w={`${100}%`}
@@ -99,8 +107,17 @@ export const Holocron = ({ launch, fullscreen, ...props }) => {
                       mt="10px"
                       h={`calc(100vh - 0.5rem  - 25px - ${up}vh - ${down}vh)`}
                     >
-                      <Box onClick={() => setLaunched(true)} pr={2}>{launch}</Box>
-                      <Box onClick={handle.enter} pl={2}>{fullscreen}</Box>
+                      <Box display="grid">
+                        {title}
+                        <Flex pt={2}>
+                          <Box onClick={() => setLaunched(true)} pr={2}>
+                            {launch}
+                          </Box>
+                          <Box onClick={handle.enter} pl={2}>
+                            {fullscreen}
+                          </Box>
+                        </Flex>
+                      </Box>
                     </Center>
                     <Box
                       flex="1"
@@ -175,6 +192,7 @@ export const Holocron = ({ launch, fullscreen, ...props }) => {
         </Flex>
       </Box>
     </FullScreen>
+    </ChakraProvider>
   );
 };
 export default Holocron;
