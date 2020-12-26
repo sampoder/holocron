@@ -19,7 +19,7 @@ import {
 export default function Home() {
   return (
     <Box>
-      <Flex h="100vh">
+      <Flex h="100vh" overflow="hidden">
         <Box w="30%" h="100vh" bg="blue.500" />
         <Box w="70%" h="100vh" bg="blue.500" p={1}>
           <Box w="100%" h="100%" bg="black" borderRadius={3}>
