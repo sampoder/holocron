@@ -52,8 +52,8 @@ export default function Home() {
                       icon={<ArrowUpIcon />}
                     />
                     <IconButton
-                      aria-label="Expand Left"
-                      icon={<ArrowForwardIcon />}
+                      aria-label="Expand Down"
+                      icon={<ArrowDownIcon />}
                     />
                   </Box>
                 </Box>
@@ -73,8 +73,8 @@ export default function Home() {
                       icon={<ArrowUpIcon />}
                     />
                     <IconButton
-                      aria-label="Expand Left"
-                      icon={<ArrowForwardIcon />}
+                      aria-label="Expand Down"
+                      icon={<ArrowDownIcon />}
                     />
                   </Box>
                 </Box>
