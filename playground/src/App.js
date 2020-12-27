@@ -22,7 +22,7 @@ function App() {
         launch={<LaunchButton />}
         fullscreen={<FullscreenButton />}
       >
-        <p style={{ color: 'white', paddingTop: '30px' }}>Hello World</p>
+        <p style={{ color: 'white'}}><img src="https://cloud-oyha4bho9.vercel.app/0screenshot_20201227-111151_jedi_challenges.jpg" /></p>
       </Holocron>
     </div>
   )
