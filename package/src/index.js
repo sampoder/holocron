@@ -7,13 +7,14 @@ import {
   ArrowUpIcon
 } from '@chakra-ui/icons'
 
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import { FullScreen, useFullScreenHandle } from 'react-full-screen'
 
 export default function Holocron({
   launch,
   fullscreen,
   title,
+  mode,
   backgroundColor,
   ...props
 }) {
@@ -156,26 +157,112 @@ export default function Holocron({
                 </Box>
               ) : (
                 <Flex>
-                  <Box
-                    w='50%'
-                    h='100%'
-                    minHeight={`calc(100vh - ${up}vh - ${down}vh)`}
-                    maxHeight={`calc(100vh - ${up}vh - ${down}vh)`}
-                    overflow='hidden'
-                    bg='black'
-                  >
-                    {props.children}
-                  </Box>
-                  <Box
-                    w='50%'
-                    h='100%'
-                    minHeight={`calc(100vh - ${up}vh - ${down}vh)`}
-                    maxHeight={`calc(100vh - ${up}vh - ${down}vh)`}
-                    overflow='hidden'
-                    bg='black'
-                  >
-                    {props.children}
-                  </Box>
+                  {
+                    (mode == 'duo' ? (
+                      <>
+                        {' '}
+                        <Box
+                          w='50%'
+                          h='100%'
+                          minHeight={`calc(100vh - ${up}vh - ${down}vh)`}
+                          maxHeight={`calc(100vh - ${up}vh - ${down}vh)`}
+                          overflow='hidden'
+                          bg='black'
+                        >
+                          {props.children}
+                        </Box>
+                        <Box
+                          w='50%'
+                          h='100%'
+                          minHeight={`calc(100vh - ${up}vh - ${down}vh)`}
+                          maxHeight={`calc(100vh - ${up}vh - ${down}vh)`}
+                          overflow='hidden'
+                          bg='black'
+                        >
+                          {props.children}
+                        </Box>
+                      </>
+                    ) : (
+                      ''
+                    ))
+                  }
+                  {
+                    (mode == 'left' ? (
+                      <>
+                        {' '}
+                        <Box
+                          w='50%'
+                          h='100%'
+                          minHeight={`calc(100vh - ${up}vh - ${down}vh)`}
+                          maxHeight={`calc(100vh - ${up}vh - ${down}vh)`}
+                          overflow='hidden'
+                          bg='black'
+                        >
+                          {props.children}
+                        </Box>
+                        <Box
+                          w='50%'
+                          h='100%'
+                          minHeight={`calc(100vh - ${up}vh - ${down}vh)`}
+                          maxHeight={`calc(100vh - ${up}vh - ${down}vh)`}
+                          overflow='hidden'
+                          bg='black'
+                        >
+                          
+                        </Box>
+                      </>
+                    ) : (
+                      ''
+                    ))
+                  }
+                  {
+                    (mode == 'right' ? (
+                      <>
+                        {' '}
+                        <Box
+                          w='50%'
+                          h='100%'
+                          minHeight={`calc(100vh - ${up}vh - ${down}vh)`}
+                          maxHeight={`calc(100vh - ${up}vh - ${down}vh)`}
+                          overflow='hidden'
+                          bg='black'
+                        >
+                          
+                        </Box>
+                        <Box
+                          w='50%'
+                          h='100%'
+                          minHeight={`calc(100vh - ${up}vh - ${down}vh)`}
+                          maxHeight={`calc(100vh - ${up}vh - ${down}vh)`}
+                          overflow='hidden'
+                          bg='black'
+                        >
+                          {props.children}
+                        </Box>
+                      </>
+                    ) : (
+                      ''
+                    ))
+                  }
+                  {
+                    (mode == 'fullscreen' ? (
+                      <>
+                        {' '}
+                        <Box
+                          w='100%'
+                          h='100%'
+                          minHeight={`calc(100vh - ${up}vh - ${down}vh)`}
+                          maxHeight={`calc(100vh - ${up}vh - ${down}vh)`}
+                          overflow='hidden'
+                          bg='black'
+                        >
+                          {props.children}
+                        </Box>
+                      </>
+                    ) : (
+                      ''
+                    ))
+                  }
                 </Flex>
               )}
             </Box>

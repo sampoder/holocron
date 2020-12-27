@@ -20,6 +20,7 @@ function App() {
         title={<Title />}
         backgroundColor="#8492a6"
         launch={<LaunchButton />}
+        mode="left"
         fullscreen={<FullscreenButton />}
       >
         <p style={{ color: "white" }}>
@@ -27,6 +28,7 @@ function App() {
             src="https://cloud-oyha4bho9.vercel.app/0screenshot_20201227-111151_jedi_challenges.jpg"
             alt="Jedi Challenges Setup"
             height="100px"
+            style={{ height: '200px', margin: 'auto', marginTop: '30px'}}
           />
         </p>
       </Holocron>
