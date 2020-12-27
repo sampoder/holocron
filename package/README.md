@@ -35,6 +35,7 @@ function App() {
         title={<Title />}
         backgroundColor='#8492a6'
         launch={<LaunchButton />}
+        mode="left"
         fullscreen={<FullscreenButton />}
       >
         <p style={{ color: 'white', paddingTop: '30px' }}>Hello World</p>
